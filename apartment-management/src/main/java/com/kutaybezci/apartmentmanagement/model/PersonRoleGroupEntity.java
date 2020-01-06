@@ -9,13 +9,16 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
-public class UserRole {
+@Entity(name = "person_role_group")
+public class PersonRoleGroupEntity {
     @Id
     @GeneratedValue
-    private long userRoleId;
+    private long personRoleGroupId;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserAccount userAccount;
+    @JoinColumn(name = "person_id")
+    private PersonEntity person;
+    @ManyToOne
+    @JoinColumn(name = "role_group_id")
+    private RoleGroupEntity roleGroup;
 
 }

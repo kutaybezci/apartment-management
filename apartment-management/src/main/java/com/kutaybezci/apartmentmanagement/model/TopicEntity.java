@@ -8,19 +8,13 @@ import javax.persistence.Id;
 import lombok.Data;
 
 @Data
-@Entity
-public class UserAccount {
+@Entity(name = "topic")
+public class TopicEntity {
     @Id
     @GeneratedValue
-    private long userId;
+    private long topicId;
     @Column(unique = true, nullable = false)
-    private String username;
+    private String topicName;
     @Column
-    private String password;
-    @Column
-    private String fullname;
-    @Column(unique = true)
-    private String email;
-    @Column(unique = true)
-    private String phone;
+    private String description;
 }

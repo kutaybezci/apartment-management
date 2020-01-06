@@ -8,11 +8,13 @@ import javax.persistence.Id;
 import lombok.Data;
 
 @Data
-@Entity
-public class Role {
+@Entity(name = "role_group")
+public class RoleGroupEntity {
     @Id
     @GeneratedValue
-    private long roleId;
+    private long roleGroupId;
     @Column(unique = true, nullable = false)
-    private String roleName;
+    private String roleGroupName;
+    @Column
+    private String description;
 }

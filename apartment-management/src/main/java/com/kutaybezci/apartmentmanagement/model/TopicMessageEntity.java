@@ -1,6 +1,5 @@
 package com.kutaybezci.apartmentmanagement.model;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -13,18 +12,19 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
-public class AccountBookEntry {
+@Entity(name = "topic_message")
+public class TopicMessageEntity {
     @Id
     @GeneratedValue
-    private long bookEntryId;
+    private long messageId;
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    private PersonEntity person;
+    @Column(nullable = false)
+    private String message;
     @Column(nullable = false)
     private Timestamp entryDate;
-    @Column(nullable = false)
-    private double amount;
-    @Column(nullable = false)
-    private Date deadline;
     @ManyToOne
-    @JoinColumn(name = "entry_user_id")
-    private UserAccount entryUser;
+    @JoinColumn(name = "topic_id")
+    private TopicEntity topic;
 }

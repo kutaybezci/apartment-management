@@ -9,9 +9,9 @@ import javax.persistence.OneToOne;
 
 import lombok.Data;
 
-@Entity
 @Data
-public class Apartment {
+@Entity(name = "apartment")
+public class ApartmentEntity {
     @Id
     @GeneratedValue
     private long apartmentId;
@@ -20,13 +20,13 @@ public class Apartment {
     @Column(nullable = false)
     private int share;
     @OneToOne
-    @JoinColumn(name = "resident_user_id")
-    private UserAccount resident;
+    @JoinColumn(name = "resident_person_id")
+    private PersonEntity resident;
     @OneToOne
-    @JoinColumn(name = "owner_user_id")
-    private UserAccount owner;
+    @JoinColumn(name = "owner_person_id")
+    private PersonEntity owner;
     @OneToOne
     @JoinColumn(name = "account_id")
-    private Account account;
+    private AccountingEntity account;
 
 }

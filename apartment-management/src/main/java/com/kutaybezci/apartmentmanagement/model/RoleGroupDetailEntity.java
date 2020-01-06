@@ -10,18 +10,14 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
-public class PollChoice {
+@Entity(name = "role_group_detail")
+public class RoleGroupDetailEntity {
     @Id
     @GeneratedValue
-    private long pollChoiceId;
-    @Column(nullable = false)
-    private String choiceName;
-    @Column
-    private String description;
+    private long roleGroupDetailId;
     @ManyToOne
-    @JoinColumn
-    private Poll poll;
-    @Column
-    private int totalVoted;
+    @JoinColumn(name = "role_group_id")
+    private RoleGroupEntity roleGroup;
+    @Column(nullable = false)
+    private String roleCode;
 }

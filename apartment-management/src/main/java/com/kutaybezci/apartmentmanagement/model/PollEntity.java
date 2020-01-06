@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import lombok.Data;
 
 @Data
-@Entity
-public class Poll {
+@Entity(name = "poll")
+public class PollEntity {
     @Id
     @GeneratedValue
     private long pollId;

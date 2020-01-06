@@ -1,5 +1,7 @@
 package com.kutaybezci.apartmentmanagement.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,14 +12,18 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
-public class RoleAuthorization {
+@Entity(name = "poll_voting")
+public class PollVotingEntity {
     @Id
     @GeneratedValue
-    private long roleAuthorizationId;
+    private long pollVotingId;
     @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
+    @JoinColumn(name = "person_id")
+    private PersonEntity person;
+    @ManyToOne
+    @JoinColumn(name = "choice_id")
+    private PollChoiceEntity pollChoice;
     @Column(nullable = false)
-    private String authorizationCode;
+    private Timestamp entryDate;
+
 }

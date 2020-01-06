@@ -1,7 +1,5 @@
 package com.kutaybezci.apartmentmanagement.model;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,18 +10,18 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
-public class PollVoting {
+@Entity(name = "poll_choice")
+public class PollChoiceEntity {
     @Id
     @GeneratedValue
-    private long pollVotingId;
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserAccount userAccount;
-    @ManyToOne
-    @JoinColumn(name = "choice_id")
-    private PollChoice pollChoice;
+    private long pollChoiceId;
     @Column(nullable = false)
-    private Timestamp entryDate;
-
+    private String choiceName;
+    @Column
+    private String description;
+    @ManyToOne
+    @JoinColumn
+    private PollEntity poll;
+    @Column
+    private int totalVoted;
 }
