@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+	<title th:text="#{login}">login</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body class="w3-container w3-pale-blue">
+	<div class="w3-card-4">
+		<div class="w3-container w3-blue w3-center">
+			<h1 th:text="#{apartment.name}">apartment.name</h1>
+		</div>
+		<div class="w3-container w3-white">
+			<form th:action="@{/login}" class="w3-margin" method="POST">
+				<div class="w3-row">
+					<div class="w3-col" style="width:50px"><i class="fa fa-user w3-xxlarge"></i></div>
+					<div class="w3-rest"><input class=" w3-input" type="text" name="username" id="username"
+							th:placeholder="#{username}" /></div>
+				</div>
+				<div class="w3-row">
+					<div class="w3-col" style="width:50px"><i class="fa fa-lock w3-xxlarge"></i></div>
+					<div class="w3-rest"><input class="w3-input w3-bar-item" type="password" name="password"
+							id="password" th:placeholder="#{password}" /></div>
+				</div>
+				<input class="w3-margin-top w3-margin-bottom w3-left w3-button w3-green w3-hover-red" type="submit" value="login" th:value="#{login}">
+			</form>
+		</div>
+		<div class="w3-container w3-blue" th:text="#{apartment.address}">apartment.address</div>
+
+	</div>
+</body>
+
+</html>
